@@ -1,0 +1,106 @@
+body {
+    background-color: #111;
+    color: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.socialblock {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 25px;
+    padding-right: 25px;
+}
+
+.socialblock i {
+    padding-right: 15px;
+}
+
+.socialblock a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.main-container {
+    margin-top: 100px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left {
+    float: left;
+    width: 50%;
+}
+
+.right {
+    float: right;
+    width: 50%;
+}
+
+.circle {
+    float: left;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    font-size: 30pt;
+    line-height: 75px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: margin 0.3s ease-out;
+}
+
+.circle:hover {
+    cursor: pointer;
+    margin-top: -5px;
+}
+
+.circle:hover #subtext {
+    display: block;
+    background: pink;
+}
+
+.clear {
+    clear: both;
+}
+
+.circle-background-yellow {
+    background: yellow;
+}
+
+.circle-background-red {
+    background: #c81616;
+}
+
+.circle-background-green {
+    background: #77c53e;
+}
+
+.circle-background-orange {
+    background: #f86d08;
+}
+
+.circle-background-purple {
+    background: #a529a3;
+}
+
+.circle-background-blue {
+    background: #6079e0;
+}
+
+.circle-font-black {
+    color: black;
+}
+
+.circle-font-white {
+    color: white;
+}
+
+.circle-container-outer {
+    margin-top: 55px;
+}
+
+.circle-container-inner {
+    margin-right: 25px;
+}

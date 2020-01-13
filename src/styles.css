@@ -104,3 +104,59 @@ body {
 .circle-container-inner {
     margin-right: 25px;
 }
+
+.large-header {
+    font-size: 50pt;
+    animation-name: fadeinlarge;
+    animation-duration: 3s;
+}
+
+@keyframes fadeinlarge {
+    from {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.medium-header {
+    font-size: 24pt;
+    animation-name: fadeinmedium;
+    animation-duration: 4s;
+}
+
+@keyframes fadeinmedium {
+    from {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.small-header {
+    margin-top: 25px;
+    font-style: italic;
+    font-size: 18pt;
+    animation-name: fadeinsmall;
+    animation-duration: 5s;
+}
+
+@keyframes fadeinsmall {
+    from {
+        opacity: 0;
+    }
+    85% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

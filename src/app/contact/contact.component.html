@@ -1,1 +1,24 @@
-<p>contact works!</p>
+<div class="contact-header">Great! To get in touch, email me at <a href="mailto:hello@andrewmilici.me">hello@andrewmilici.me</a> or complete the form below.</div>
+
+
+<div class="contactform">
+
+    <p>
+        <label for="">Your name</label>
+        <input type="text" [(ngModel)]="FullName" name="FullName" id="FullName" />
+    </p>
+
+    <p>
+        <label for="">Email Address</label>
+        <input type="email" [(ngModel)]="EmailAddress" name="EmailAddress" id="EmailAddress" />
+    </p>
+
+    <p class="full-width">
+        <label for="">Your message</label>
+        <textarea [(ngModel)]="Comments" name="Comments" id="Comments" cols="30" rows="7"></textarea>
+    </p>
+    <p class="full-width">
+        <button (click)="onSendClick()">Send</button>
+    </p>
+
+</div>

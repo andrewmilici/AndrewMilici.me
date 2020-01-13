@@ -4,42 +4,6 @@
     margin-right: auto;
 }
 
-.large-header {
-    font-size: 72pt;
-    animation-name: fadeinlarge;
-    animation-duration: 3s;
-}
-
-@keyframes fadeinlarge {
-    from {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.medium-header {
-    font-size: 36pt;
-    animation-name: fadeinmedium;
-    animation-duration: 4s;
-}
-
-@keyframes fadeinmedium {
-    from {
-        opacity: 0;
-    }
-    75% {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 .subtitle-text {
     margin-top: 50px;
     font-size: 22pt;

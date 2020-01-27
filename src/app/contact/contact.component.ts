@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-contact',
@@ -24,8 +26,10 @@ export class ContactComponent implements OnInit {
       "Comments": this.Comments
     };
 
-    this.http.post<any>('https://andrewmilici.me/mailer.php', postData).subscribe(data => {
 
+
+    this.http.post<any>('https://andrewmilici.me/mailer.php', postData).subscribe(data => {
+      swal.fire('Thanks!', "I'll get back to you as soon as I can", 'success');
     });
 
   }

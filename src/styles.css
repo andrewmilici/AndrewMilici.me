@@ -4,7 +4,7 @@ body {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-.profile-photo{
+.profile-photo {
     border-radius: 50%;
 }
 
@@ -34,12 +34,12 @@ body {
 
 .left {
     float: left;
-    width: 50%;
+    width: 60%;
 }
 
 .right {
     float: right;
-    width: 50%;
+    width: 40%;
 }
 
 .circle {
@@ -164,3 +164,31 @@ body {
         opacity: 1;
     }
 }
+
+a {
+    color: #FFFFFF;
+}
+
+
+/* Unvisited link  */
+
+a:visited {
+    color: #FFFFFF;
+}
+
+
+/* Visited link    */
+
+a:hover {
+    color: #FFFFFF;
+}
+
+
+/* Mouse over link */
+
+a:active {
+    color: #FFFFFF;
+}
+
+
+/* Selected link   */

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeAnimation } from '../../app-animations';
 import { HttpClient } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+import { Router } from '@angular/router';
+
+declare var require: any
+const FileSaver = require('file-saver');
 
 @Component({
   selector: 'app-standard-layout',
@@ -10,9 +15,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StandardLayoutComponent implements OnInit {
 
+  public CurrentRoute: number = 0;
   public SubtitleText: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
@@ -22,47 +28,65 @@ export class StandardLayoutComponent implements OnInit {
     this.SubtitleText = '';
   }
 
-  downloadResume() {
-    let resumeUrl = "https://andrewmilici.me/assets/Andrew%20Milici%20Resume.pdf";
-
-    this.http.get(resumeUrl, {
-      responseType: 'arraybuffer', headers: null
+  navigateTo(e) {
+    this.CurrentRoute = e;
+    switch (e) {
+      case 1: // About
+        this.router.navigate(['/about']);
+        break;
+      case 2: //Projects
+        this.router.navigate(['/projects']);
+        break;
+      case 4: //Contact
+        this.router.navigate(['/contact']);
+        break;
     }
-    ).subscribe(response => this.downloadFile(response, "application/pdf"));
+  }
+
+  downloadResume() {
+    const pdfUrl = 'https://andrewmilici.me/assets/AndrewMiliciResume.pdf';
+    const pdfName = 'AndrewMiliciResume.pdf';
+    FileSaver.saveAs(pdfUrl, pdfName);
   }
 
   buttonMouseOver(e) {
     switch (e) {
       case 0:
-        this.SubtitleText = "About Me";
+        this.SubtitleText = "Home";
         break;
       case 1:
-        this.SubtitleText = "Projects (and some sample code)";
+        this.SubtitleText = "About Me";
         break;
       case 2:
-        this.SubtitleText = "Download a copy of my resume";
+        this.SubtitleText = "Projects (and some sample code)";
         break;
       case 3:
+        this.SubtitleText = "Download a copy of my resume";
+        break;
+      case 4:
         this.SubtitleText = "Contact";
         break;
-
     }
 
   }
 
   buttonMouseOut() {
-    this.SubtitleText = '';
-  }
-
-
-  downloadFile(data: any, type: string) {
-    let blob = new Blob([data], { type: type });
-    let url = window.URL.createObjectURL(blob);
-    let pwa = window.open(url);
-    if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
-      alert('Please disable your Pop-up blocker and try again.');
+    switch (this.CurrentRoute) {
+      case 0:
+        this.SubtitleText = "Home";
+        break;
+      case 1:
+        this.SubtitleText = "About Me";
+        break;
+      case 2:
+        this.SubtitleText = "Projects (and some sample code)";
+        break;
+      case 3:
+        this.SubtitleText = "Download a copy of my resume";
+        break;
+      case 4:
+        this.SubtitleText = "Contact";
+        break;
     }
-    )
   }
-
 }

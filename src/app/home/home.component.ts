@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { saveAs } from 'file-saver';
+
+declare var require: any
+const FileSaver = require('file-saver');
 
 @Component({
   selector: 'app-home',
@@ -17,13 +21,9 @@ export class HomeComponent implements OnInit {
   }
 
   downloadResume() {
-    let resumeUrl = "https://andrewmilici.me/assets/Andrew%20Milici%20Resume.pdf";
-    
-
-    this.http.get(resumeUrl, {
-      responseType: 'arraybuffer', headers: null
-    }
-    ).subscribe(response => this.downloadFile(response, "application/pdf"));
+    const pdfUrl = 'https://andrewmilici.me/assets/AndrewMiliciResume.pdf';
+    const pdfName = 'AndrewMiliciResume.pdf';
+    FileSaver.saveAs(pdfUrl, pdfName);
   }
 
   buttonMouseOver(e) {
@@ -49,13 +49,5 @@ export class HomeComponent implements OnInit {
     this.SubtitleText = '';
   }
 
-  downloadFile(data: any, type: string) {
-    let blob = new Blob([data], { type: type });
-    let url = window.URL.createObjectURL(blob);
-    let pwa = window.open(url);
-    if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
-      alert('Please disable your Pop-up blocker and try again.');
-    }
-  }
 
 }

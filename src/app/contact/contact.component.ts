@@ -26,10 +26,10 @@ export class ContactComponent implements OnInit {
       "Comments": this.Comments
     };
 
-
+    swal.fire('Thanks!', "I'll get back to you as soon as I can", 'success');
 
     this.http.post<any>('https://andrewmilici.me/mailer.php', postData).subscribe(data => {
-      swal.fire('Thanks!', "I'll get back to you as soon as I can", 'success');
+
     });
 
   }
